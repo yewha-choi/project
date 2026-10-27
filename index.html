@@ -1,0 +1,1256 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>신비로운 터키(Türkiye) 여행 - 동서양이 만나는 매혹의 땅</title>
+
+  <!-- 웹폰트 불러오기: 세련된 한글 폰트 Pretendard 및 영문 폰트 Montserrat -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800;900&display=swap" rel="stylesheet">
+  <!-- 폰트어썸 아이콘 라이브러리 (비디오 음소거, 화살표 등 UI 아이콘에 사용) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    /* ========================================================
+       1. 디자인 테마 변수 (Color Palette & Variables)
+       - 색상 및 간격을 한곳에서 관리하여 유지보수를 쉽게 만듭니다.
+       ======================================================== */
+    :root {
+      --bg-dark: #0a0e17;              /* 깊은 밤하늘 느낌의 다크 배경 */
+      --bg-card: rgba(23, 32, 54, 0.7); /* 글래스모피즘 카드 배경 */
+      --turquoise: #00e5c9;            /* 활기찬 터키석 에메랄드 블루 */
+      --turquoise-glow: rgba(0, 229, 201, 0.4);
+      --turkish-red: #e30a17;          /* 터키 국기 붉은색 포인트 */
+      --turkish-gold: #f5af19;         /* 오스만 제국의 황금빛 */
+      --text-main: #ffffff;            /* 메인 텍스트 (순백색) */
+      --text-sub: #b0bac9;             /* 서브 설명 텍스트 (연회색) */
+      --border-glass: rgba(255, 255, 255, 0.12); /* 반투명 테두리 */
+      --transition-smooth: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    /* ========================================================
+       2. 기본 리셋 및 전역 스타일
+       ======================================================== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth; /* 메뉴 클릭 시 부드럽게 스크롤 */
+      font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      overflow-x: hidden;
+    }
+
+    body {
+      background: radial-gradient(circle at 50% 0%, #152238 0%, #080c14 70%);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    /* 공통 컨테이너: 화면 중앙에 적절한 너비로 배치 */
+    .container {
+      width: 90%;
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 15px;
+    }
+
+    /* ========================================================
+       3. 네비게이션 바 (Header & Nav)
+       ======================================================== */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(10, 14, 23, 0.85);
+      backdrop-filter: blur(12px); /* 배경 블러 효과로 트렌디한 글래스모피즘 구현 */
+      border-bottom: 1px solid var(--border-glass);
+      transition: var(--transition-smooth);
+    }
+
+    .nav-wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 75px;
+    }
+
+    /* 터키 로고 스타일 */
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.45rem;
+      font-weight: 800;
+      font-family: 'Montserrat', sans-serif;
+      letter-spacing: 1px;
+    }
+
+    .logo-flag {
+      font-size: 1.7rem;
+    }
+
+    .logo span {
+      background: linear-gradient(135deg, var(--turquoise), #4deeed);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* 내비게이션 링크 목록 */
+    .nav-menu {
+      display: flex;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .nav-link {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--text-sub);
+      transition: var(--transition-smooth);
+      position: relative;
+      padding: 5px 0;
+    }
+
+    .nav-link:hover {
+      color: var(--turquoise);
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background: var(--turquoise);
+      transition: var(--transition-smooth);
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    /* 우측 상담/안내 강조 버튼 */
+    .btn-contact {
+      background: linear-gradient(135deg, var(--turkish-red), #ff4d5a);
+      color: #fff;
+      padding: 9px 22px;
+      border-radius: 30px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      box-shadow: 0 4px 15px rgba(227, 10, 23, 0.35);
+      transition: var(--transition-smooth);
+    }
+
+    .btn-contact:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(227, 10, 23, 0.55);
+    }
+
+    /* 모바일 햄버거 버튼 (기본 숨김) */
+    .menu-toggle {
+      display: none;
+      font-size: 1.5rem;
+      color: var(--text-main);
+      cursor: pointer;
+    }
+
+    /* ========================================================
+       4. 히어로 섹션 (Hero Section) & 메인 비디오 숏폼
+       ======================================================== */
+    .hero-section {
+      min-height: 100vh;
+      padding-top: 100px;
+      padding-bottom: 60px;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* 배경 장식 원형 조명 효과 */
+    .hero-glow-1 {
+      position: absolute;
+      top: 15%;
+      left: -10%;
+      width: 450px;
+      height: 450px;
+      background: radial-gradient(circle, rgba(0, 229, 201, 0.15) 0%, transparent 70%);
+      filter: blur(50px);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .hero-glow-2 {
+      position: absolute;
+      bottom: 10%;
+      right: -10%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(227, 10, 23, 0.12) 0%, transparent 70%);
+      filter: blur(60px);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 50px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* 히어로 텍스트 영역 */
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      border-radius: 20px;
+      background: rgba(0, 229, 201, 0.1);
+      border: 1px solid rgba(0, 229, 201, 0.3);
+      color: var(--turquoise);
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .hero-title {
+      font-size: 3.2rem;
+      font-weight: 900;
+      line-height: 1.25;
+      margin-bottom: 22px;
+      letter-spacing: -0.5px;
+    }
+
+    .hero-title .gradient-text {
+      background: linear-gradient(135deg, #ffffff 30%, var(--turquoise) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-title .gold-text {
+      background: linear-gradient(135deg, #ffd700, var(--turkish-gold));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-desc {
+      font-size: 1.1rem;
+      color: var(--text-sub);
+      margin-bottom: 35px;
+      max-width: 540px;
+      line-height: 1.7;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(135deg, var(--turquoise), #00bfa5);
+      color: #03201d;
+      padding: 14px 28px;
+      border-radius: 30px;
+      font-weight: 700;
+      font-size: 1rem;
+      box-shadow: 0 8px 25px var(--turquoise-glow);
+      transition: var(--transition-smooth);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 12px 30px rgba(0, 229, 201, 0.6);
+      color: #000;
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-glass);
+      color: #fff;
+      padding: 14px 26px;
+      border-radius: 30px;
+      font-weight: 600;
+      font-size: 1rem;
+      backdrop-filter: blur(8px);
+      transition: var(--transition-smooth);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.15);
+      border-color: rgba(255, 255, 255, 0.3);
+      transform: translateY(-2px);
+    }
+
+    /* ----------------------------------------------------
+       핵심: 반응형 메인 숏폼 비디오 컨테이너 (스마트폰 목업 스타일)
+       - 모바일 화면에서도 비율이 깨지지 않도록 CSS 최적화!
+       ---------------------------------------------------- */
+    .video-showcase-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    /* 뒤쪽 네온 링 장식 */
+    .video-showcase-wrapper::before {
+      content: '';
+      position: absolute;
+      width: 105%;
+      height: 105%;
+      border-radius: 46px;
+      background: linear-gradient(135deg, var(--turquoise), var(--turkish-red));
+      filter: blur(28px);
+      opacity: 0.45;
+      z-index: 0;
+      animation: pulse-glow 5s infinite alternate ease-in-out;
+    }
+
+    @keyframes pulse-glow {
+      0% { opacity: 0.35; transform: scale(0.98); }
+      100% { opacity: 0.6; transform: scale(1.02); }
+    }
+
+    /* 스마트폰 기기 형태의 외곽 프레임 */
+    .phone-mockup-frame {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 330px;          /* 숏폼 동영상(세로 비율 9:16)에 최적화된 최대 너비 */
+      aspect-ratio: 9 / 16;       /* 비디오 종횡비 9:16 완벽 고정보존 */
+      border-radius: 40px;
+      background: #000;
+      padding: 11px;              /* 스마트폰 베젤 두께 */
+      box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.8),
+                  0 0 0 1px rgba(255, 255, 255, 0.15) inset;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* 상단 스피커 & 카메라 노치 */
+    .phone-notch {
+      position: absolute;
+      top: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 18px;
+      background: #000;
+      border-radius: 12px;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .phone-notch::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      background: #111e2f;
+      border-radius: 50%;
+    }
+
+    /* 실제 비디오 요소 스타일링 */
+    .main-shortform-video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;         /* 비디오가 박스 안에 꽉 차면서 비율 왜곡 방지 */
+      border-radius: 30px;
+      display: block;
+      background-color: #0d131f;
+    }
+
+    /* 비디오 상단 오버레이 안내 뱃지 */
+    .video-overlay-badge {
+      position: absolute;
+      top: 36px;
+      left: 20px;
+      z-index: 5;
+      background: rgba(0, 0, 0, 0.55);
+      backdrop-filter: blur(6px);
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .live-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--turkish-red);
+      animation: blink 1.2s infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.2; }
+    }
+
+    /* 음소거 토글 버튼 (사용자 편의 기능) */
+    .video-sound-toggle {
+      position: absolute;
+      bottom: 24px;
+      right: 24px;
+      z-index: 10;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(0, 0, 0, 0.65);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: var(--transition-smooth);
+    }
+
+    .video-sound-toggle:hover {
+      background: var(--turquoise);
+      color: #000;
+      transform: scale(1.1);
+    }
+
+    /* ========================================================
+       5. 공통 섹션 제목 & 스크롤 애니메이션 클래스
+       ======================================================== */
+    .section {
+      padding: 100px 0;
+      position: relative;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 60px auto;
+    }
+
+    .section-tag {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--turquoise);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      display: block;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 16px;
+      letter-spacing: -0.5px;
+    }
+
+    .section-desc {
+      color: var(--text-sub);
+      font-size: 1.05rem;
+    }
+
+    /* ----------------------------------------------------
+       스크롤 인터랙션: 부드러운 등장 애니메이션
+       - Intersection Observer가 감지하여 .active를 붙여줍니다.
+       ---------------------------------------------------- */
+    .reveal {
+      opacity: 0;
+      transform: translateY(45px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* 카드 순차적 지연(Stagger) 효과 */
+    .delay-1 { transition-delay: 0.1s; }
+    .delay-2 { transition-delay: 0.2s; }
+    .delay-3 { transition-delay: 0.3s; }
+    .delay-4 { transition-delay: 0.4s; }
+
+    /* ========================================================
+       6. 터키 주요 여행 명소 카드 섹션 (Attractions)
+       ======================================================== */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 30px;
+    }
+
+    .place-card {
+      background: var(--bg-card);
+      backdrop-filter: blur(10px);
+      border-radius: 24px;
+      border: 1px solid var(--border-glass);
+      overflow: hidden;
+      transition: var(--transition-smooth);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .place-card:hover {
+      transform: translateY(-10px);
+      border-color: rgba(0, 229, 201, 0.4);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 20px rgba(0, 229, 201, 0.2);
+    }
+
+    .card-img-wrapper {
+      position: relative;
+      width: 100%;
+      height: 220px;
+      overflow: hidden;
+    }
+
+    .card-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .place-card:hover .card-img {
+      transform: scale(1.08);
+    }
+
+    .card-city-badge {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      background: rgba(10, 14, 23, 0.75);
+      backdrop-filter: blur(8px);
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--turquoise);
+      border: 1px solid rgba(0, 229, 201, 0.3);
+    }
+
+    .card-body {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .card-title {
+      font-size: 1.35rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: #fff;
+    }
+
+    .card-text {
+      color: var(--text-sub);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-bottom: 20px;
+      flex-grow: 1;
+    }
+
+    .card-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 15px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      font-size: 0.85rem;
+      color: var(--turkish-gold);
+    }
+
+    /* ========================================================
+       7. 터키 대표 미식 & 문화 체험 섹션 (Cuisine & Culture)
+       ======================================================== */
+    .cuisine-section {
+      background: linear-gradient(180deg, transparent, rgba(23, 32, 54, 0.3), transparent);
+    }
+
+    .food-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
+    }
+
+    .food-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border-glass);
+      border-radius: 20px;
+      padding: 30px;
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+      transition: var(--transition-smooth);
+    }
+
+    .food-box:hover {
+      border-color: rgba(245, 175, 25, 0.5);
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+    }
+
+    .food-icon-wrap {
+      width: 58px;
+      height: 58px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, rgba(245, 175, 25, 0.2), rgba(227, 10, 23, 0.2));
+      border: 1px solid rgba(245, 175, 25, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      color: var(--turkish-gold);
+      flex-shrink: 0;
+    }
+
+    .food-info h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #fff;
+    }
+
+    .food-info p {
+      font-size: 0.92rem;
+      color: var(--text-sub);
+      line-height: 1.6;
+    }
+
+    /* ========================================================
+       8. 여행 실전 꿀팁 인포그래픽 섹션 (Travel Tips)
+       ======================================================== */
+    .tips-container {
+      background: linear-gradient(135deg, rgba(0, 229, 201, 0.06), rgba(227, 10, 23, 0.06));
+      border: 1px solid var(--border-glass);
+      border-radius: 28px;
+      padding: 50px 40px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 25px;
+      text-align: center;
+    }
+
+    .tip-item {
+      padding: 10px;
+    }
+
+    .tip-icon {
+      font-size: 2.2rem;
+      color: var(--turquoise);
+      margin-bottom: 15px;
+      display: inline-block;
+    }
+
+    .tip-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .tip-desc {
+      font-size: 0.9rem;
+      color: var(--text-sub);
+    }
+
+    /* ========================================================
+       9. 푸터 (Footer) & 크레딧
+       ======================================================== */
+    .footer {
+      border-top: 1px solid var(--border-glass);
+      background: #05080e;
+      padding: 60px 0 35px 0;
+      margin-top: 80px;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 25px;
+      margin-bottom: 40px;
+    }
+
+    .footer-brand h4 {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+
+    .footer-brand p {
+      color: var(--text-sub);
+      font-size: 0.9rem;
+    }
+
+    .footer-source {
+      background: rgba(255, 255, 255, 0.04);
+      padding: 14px 20px;
+      border-radius: 12px;
+      border: 1px solid var(--border-glass);
+      font-size: 0.88rem;
+      color: var(--text-sub);
+    }
+
+    .footer-source a {
+      color: var(--turquoise);
+      font-weight: 600;
+      text-decoration: underline;
+      transition: var(--transition-smooth);
+    }
+
+    .footer-source a:hover {
+      color: #fff;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 25px;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      font-size: 0.85rem;
+      color: #6c798e;
+    }
+
+    /* ========================================================
+       10. 모바일 및 태블릿 반응형 미디어 쿼리 (Responsive Styles)
+       ======================================================== */
+    @media (max-width: 992px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 40px;
+      }
+
+      .hero-desc {
+        margin: 0 auto 30px auto;
+      }
+
+      .hero-actions {
+        justify-content: center;
+      }
+
+      .hero-title {
+        font-size: 2.6rem;
+      }
+
+      .phone-mockup-frame {
+        max-width: 290px;
+      }
+
+      .tips-container {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 35px 20px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-menu {
+        position: fixed;
+        top: 75px;
+        left: 0;
+        width: 100%;
+        background: rgba(10, 14, 23, 0.98);
+        backdrop-filter: blur(15px);
+        flex-direction: column;
+        padding: 30px 0;
+        gap: 20px;
+        transform: translateY(-150%);
+        opacity: 0;
+        transition: var(--transition-smooth);
+        border-bottom: 1px solid var(--border-glass);
+      }
+
+      .nav-menu.active {
+        transform: translateY(0);
+        opacity: 1;
+      }
+
+      .btn-contact {
+        display: none;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .hero-title {
+        font-size: 2.1rem;
+      }
+
+      .section-title {
+        font-size: 1.9rem;
+      }
+
+      .phone-mockup-frame {
+        max-width: 260px; /* 스마트폰에서도 너무 크지 않고 자연스럽게 */
+      }
+
+      .tips-container {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-content {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========================================================
+       헤더 및 네비게이션
+       ======================================================== -->
+  <header class="header">
+    <div class="container nav-wrapper">
+      <a href="#" class="logo">
+        <span class="logo-flag">🇹🇷</span>
+        <span>Türkiye</span> Travel
+      </a>
+
+      <!-- 데스크톱 및 모바일 네비게이션 메뉴 -->
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="#hero" class="nav-link">홈</a></li>
+        <li><a href="#attractions" class="nav-link">추천 여행지</a></li>
+        <li><a href="#cuisine" class="nav-link">미식 탐방</a></li>
+        <li><a href="#tips" class="nav-link">여행 꿀팁</a></li>
+      </ul>
+
+      <!-- 헤더 우측 CTA 버튼 -->
+      <a href="#attractions" class="btn-contact">터키 둘러보기</a>
+
+      <!-- 모바일 햄버거 메뉴 아이콘 -->
+      <div class="menu-toggle" id="menuToggle">
+        <i class="fa-solid fa-bars"></i>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================================
+       메인 콘텐츠 영역
+       ======================================================== -->
+  <main>
+
+    <!-- ----------------------------------------------------
+         1. 히어로 섹션 (Hero Section with Short-form Video)
+         - 중앙/우측에 '터키숏폼.mp4' 자동 재생 및 무한 반복
+         ---------------------------------------------------- -->
+    <section class="hero-section" id="hero">
+      <div class="hero-glow-1"></div>
+      <div class="hero-glow-2"></div>
+
+      <div class="container hero-grid">
+        
+        <!-- 좌측 텍스트 & 콜투액션 -->
+        <div class="hero-text-content reveal active">
+          <div class="hero-badge">
+            <i class="fa-solid fa-compass"></i> Discover the Magic of Türkiye
+          </div>
+          <h1 class="hero-title">
+            동서양 문명이 교차하는<br>
+            <span class="gradient-text">신비의 땅, 터키</span><br>
+            <span class="gold-text">당신만의 여정을 떠나보세요</span>
+          </h1>
+          <p class="hero-desc">
+            카파도키아의 하늘을 수놓는 열기구부터 이스탄불의 장엄한 역사 유적, 
+            파묵칼레의 순백의 천연 온천까지! 눈부신 풍경과 풍성한 미식이 가득한 
+            터키의 감동을 지금 바로 만나보세요.
+          </p>
+          <div class="hero-actions">
+            <a href="#attractions" class="btn-primary">
+              <i class="fa-solid fa-map-location-dot"></i> 명소 탐험하기
+            </a>
+            <a href="#cuisine" class="btn-secondary">
+              <i class="fa-solid fa-utensils"></i> 미식 가이드
+            </a>
+          </div>
+        </div>
+
+        <!-- 우측: 모바일 비율이 깨지지 않는 스마트폰 프레임 속 숏폼 비디오 -->
+        <div class="video-showcase-wrapper reveal delay-2 active">
+          <div class="phone-mockup-frame">
+            <!-- 스마트폰 상단 노치 -->
+            <div class="phone-notch"></div>
+
+            <!-- 라이브 숏폼 뱃지 -->
+            <div class="video-overlay-badge">
+              <span class="live-dot"></span> 숏폼 생생 영상
+            </div>
+
+            <!--
+              [비디오 재생 핵심 태그]
+              1. autoplay: 페이지 진입 시 자동 재생
+              2. loop: 영상 종료 시 끊김 없이 무한 반복
+              3. muted: 브라우저 자동재생 정책(Autoplay Policy)을 위해 필수 음소거
+              4. playsinline: 모바일(iOS/Android)에서 전체화면으로 튕기지 않고 웹페이지 안에서 인라인 재생 보장
+            -->
+            <video 
+              class="main-shortform-video" 
+              id="shortformVideo"
+              autoplay 
+              loop 
+              muted 
+              playsinline
+              preload="auto"
+            >
+              <!-- 공백이 들어간 파일명과 붙어있는 파일명 둘 다 안전하게 지원합니다 -->
+              <source src="터키 숏폼.mp4" type="video/mp4">
+              <source src="터키숏폼.mp4" type="video/mp4">
+              브라우저가 HTML5 비디오 재생을 지원하지 않습니다.
+            </video>
+
+            <!-- 사용자 편의: 비디오 소리 켜기/끄기 토글 버튼 -->
+            <button class="video-sound-toggle" id="soundToggleBtn" title="소리 켜기/끄기">
+              <i class="fa-solid fa-volume-xmark" id="soundIcon"></i>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ----------------------------------------------------
+         2. 추천 여행지 섹션 (Attractions)
+         ---------------------------------------------------- -->
+    <section class="section" id="attractions">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">Best Destinations</span>
+          <h2 class="section-title">터키 여행의 핵심 명소</h2>
+          <p class="section-desc">오랜 역사와 대자연의 경이로움이 공존하는 터키의 대표 랜드마크를 소개합니다.</p>
+        </div>
+
+        <div class="cards-grid">
+          <!-- 카드 1: 카파도키아 -->
+          <div class="place-card reveal delay-1">
+            <div class="card-img-wrapper">
+              <img src="https://images.unsplash.com/photo-1570939274717-7eda259b50ed?auto=format&fit=crop&w=700&q=80" alt="카파도키아 열기구" class="card-img">
+              <span class="card-city-badge">카파도키아</span>
+            </div>
+            <div class="card-body">
+              <h3 class="card-title">괴레메 열기구 투어</h3>
+              <p class="card-text">
+                기암괴석 위로 붉게 떠오르는 일출과 함께 수백 개의 열기구가 하늘을 가득 채우는 환상적인 파노라마를 경험해보세요.
+              </p>
+              <div class="card-meta">
+                <span><i class="fa-solid fa-star"></i> 일출 최고의 순간</span>
+                <span><i class="fa-regular fa-clock"></i> 연중 운영</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 카드 2: 이스탄불 아야 소피아 -->
+          <div class="place-card reveal delay-2">
+            <div class="card-img-wrapper">
+              <img src="https://images.unsplash.com/photo-1541432901042-2d8bd64b4a9b?auto=format&fit=crop&w=700&q=80" alt="이스탄불 아야 소피아" class="card-img">
+              <span class="card-city-badge">이스탄불</span>
+            </div>
+            <div class="card-body">
+              <h3 class="card-title">아야 소피아 & 블루 모스크</h3>
+              <p class="card-text">
+                비잔틴 건축의 정수 아야 소피아와 푸른 타일이 아름다운 술탄 아흐메트 모스크에서 수천 년의 숨결을 느껴보세요.
+              </p>
+              <div class="card-meta">
+                <span><i class="fa-solid fa-landmark"></i> 유네스코 세계유산</span>
+                <span><i class="fa-solid fa-moon"></i> 야경 명소</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 카드 3: 파묵칼레 -->
+          <div class="place-card reveal delay-3">
+            <div class="card-img-wrapper">
+              <img src="https://images.unsplash.com/photo-1527838832700-5059252407fa?auto=format&fit=crop&w=700&q=80" alt="파묵칼레 석회붕" class="card-img">
+              <span class="card-city-badge">데니즐리</span>
+            </div>
+            <div class="card-body">
+              <h3 class="card-title">순백의 성채 파묵칼레</h3>
+              <p class="card-text">
+                '목화의 성'이란 뜻의 파묵칼레는 계단식 탄산칼슘 석회붕과 에메랄드빛 온천수가 어우러져 그림 같은 풍광을 선사합니다.
+              </p>
+              <div class="card-meta">
+                <span><i class="fa-solid fa-spa"></i> 천연 노천 온천</span>
+                <span><i class="fa-solid fa-camera"></i> 인생샷 명소</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 카드 4: 안탈리아 지중해 해변 -->
+          <div class="place-card reveal delay-4">
+            <div class="card-img-wrapper">
+              <img src="https://images.unsplash.com/photo-1542051841857-5f90071e7989?auto=format&fit=crop&w=700&q=80" alt="안탈리아 지중해" class="card-img">
+              <span class="card-city-badge">안탈리아</span>
+            </div>
+            <div class="card-body">
+              <h3 class="card-title">눈부신 지중해 휴양 안탈리아</h3>
+              <p class="card-text">
+                터키석 빛깔의 투명한 바다와 고대 로마 유적이 함께 숨 쉬는 칼레이치 구시가지에서 여유로운 휴식을 즐기세요.
+              </p>
+              <div class="card-meta">
+                <span><i class="fa-solid fa-water"></i> 지중해 리조트</span>
+                <span><i class="fa-solid fa-sun"></i> 따뜻한 기후</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ----------------------------------------------------
+         3. 미식 탐방 섹션 (Cuisine)
+         ---------------------------------------------------- -->
+    <section class="section cuisine-section" id="cuisine">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">Taste of Türkiye</span>
+          <h2 class="section-title">세계 3대 미식, 터키 요리</h2>
+          <p class="section-desc">풍부한 향신료와 신선한 식재료가 빚어내는 터키의 황홀한 맛의 향연</p>
+        </div>
+
+        <div class="food-grid">
+          <!-- 음식 1: 전통 케밥 -->
+          <div class="food-box reveal delay-1">
+            <div class="food-icon-wrap">
+              <i class="fa-solid fa-fire-burner"></i>
+            </div>
+            <div class="food-info">
+              <h3>정통 이스켄데르 & 되네르 케밥</h3>
+              <p>숯불에 겉바속촉으로 구워낸 고기와 버터 향 가득한 피타 빵, 요구르트와 토마토 소스가 어우러진 터키 최고의 대표 요리입니다.</p>
+            </div>
+          </div>
+
+          <!-- 음식 2: 카이막 & 꿀 -->
+          <div class="food-box reveal delay-2">
+            <div class="food-icon-wrap">
+              <i class="fa-solid fa-bread-slice"></i>
+            </div>
+            <div class="food-info">
+              <h3>천상의 디저트, 카이막 (Kaymak)</h3>
+              <p>물소 젖을 장시간 끓여 만든 진하고 부드러운 우유 크림에 달콤한 천연 벌꿀을 곁들여 바삭한 바게트와 함께 먹는 아침의 축복입니다.</p>
+            </div>
+          </div>
+
+          <!-- 음식 3: 터키쉬 딜라이트 & 차이 -->
+          <div class="food-box reveal delay-3">
+            <div class="food-info">
+              <h3>터키식 홍차 '차이' & 바클라바</h3>
+              <p>허리 잘록한 유리잔에 담긴 진한 붉은빛 차이(Çay)와 얇은 페이스트리 겹겹이 피스타치오와 시럽을 채운 달콤한 바클라바의 조화.</p>
+            </div>
+            <div class="food-icon-wrap">
+              <i class="fa-solid fa-mug-hot"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ----------------------------------------------------
+         4. 여행 실전 꿀팁 (Travel Tips)
+         ---------------------------------------------------- -->
+    <section class="section" id="tips">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">Travel Guide</span>
+          <h2 class="section-title">터키 여행 핵심 팁</h2>
+          <p class="section-desc">안전하고 즐거운 튀르키예 여행을 위해 미리 알아두면 좋은 4가지 정보</p>
+        </div>
+
+        <div class="tips-container reveal">
+          <div class="tip-item">
+            <i class="fa-solid fa-passport tip-icon"></i>
+            <h4 class="tip-title">무비자 입국</h4>
+            <p class="tip-desc">대한민국 여권 소지자는 90일간 무비자 관광이 가능합니다.</p>
+          </div>
+          <div class="tip-item">
+            <i class="fa-solid fa-coins tip-icon"></i>
+            <h4 class="tip-title">화폐 및 결제</h4>
+            <p class="tip-desc">터키 리라(TRY)를 사용하며, 대도시와 관광지에서는 신용카드 사용이 편리합니다.</p>
+          </div>
+          <div class="tip-item">
+            <i class="fa-solid fa-cloud-sun tip-icon"></i>
+            <h4 class="tip-title">추천 여행 시기</h4>
+            <p class="tip-desc">봄(4~5월)과 가을(9~11월)이 쾌적하여 관광하기에 가장 좋습니다.</p>
+          </div>
+          <div class="tip-item">
+            <i class="fa-solid fa-clock tip-icon"></i>
+            <h4 class="tip-title">시차 안내</h4>
+            <p class="tip-desc">한국보다 6시간 느리며, 서머타임은 적용되지 않습니다.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========================================================
+       푸터 (Footer & Credit)
+       ======================================================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <h4>🇹🇷 Türkiye Travel Showcase</h4>
+          <p>트렌디한 반응형 웹 기술로 만나는 매혹적인 터키 여행 이야기</p>
+        </div>
+        
+        <!-- 사용자 제공 출처 및 링크 명시 -->
+        <div class="footer-source">
+          <i class="fa-solid fa-quote-left"></i>
+          참고자료: <a href="https://cafe.naver.com/hibrains/4673" target="_blank" rel="noopener noreferrer">하이레인스 네이버 카페</a> 
+          | 작성자: <a href="https://cafe.naver.com/hibrains.cafe?iframe_url=%2Fca-fe%2Fcafes%2F15935762%2Fmembers%2Fcngqa9RxIQPmcYRdVzFzAA" target="_blank" rel="noopener noreferrer">고청심교수</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Türkiye Travel Guide. All rights reserved. Designed with modern HTML5, CSS3 & JavaScript.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================================================
+       자바스크립트 인터랙션 로직
+       ======================================================== -->
+  <script>
+    /* ========================================================
+       1. 모바일 햄버거 메뉴 토글 기능
+       ======================================================== */
+    const menuToggle = document.getElementById('menuToggle');
+    const navMenu = document.getElementById('navMenu');
+
+    // 햄버거 버튼 클릭 시 메뉴 펼치기/접기
+    menuToggle.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+    });
+
+    // 메뉴 항목 클릭 시 메뉴 닫기 (모바일 환경 편의성)
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+      });
+    });
+
+    /* ========================================================
+       2. 비디오 자동 재생 보장 및 소리 토글 (Mute / Unmute)
+       ======================================================== */
+    const video = document.getElementById('shortformVideo');
+    const soundToggleBtn = document.getElementById('soundToggleBtn');
+    const soundIcon = document.getElementById('soundIcon');
+
+    // 모바일 브라우저의 엄격한 자동재생 정책 대응
+    document.addEventListener('DOMContentLoaded', () => {
+      if (video) {
+        // 음소거 상태로 확실하게 자동 재생 시도
+        video.muted = true;
+        const playPromise = video.play();
+        if (playPromise !== undefined) {
+          playPromise.catch(error => {
+            console.log("브라우저 자동재생 제한 정책으로 인해 사용자 첫 제스처 후 재생됩니다:", error);
+          });
+        }
+      }
+    });
+
+    // 사용자가 소리 토글 버튼 클릭 시 소리 켜기/끄기
+    soundToggleBtn.addEventListener('click', () => {
+      if (video.muted) {
+        video.muted = false;
+        soundIcon.classList.remove('fa-volume-xmark');
+        soundIcon.classList.add('fa-volume-high');
+        soundToggleBtn.style.background = 'var(--turquoise)';
+        soundToggleBtn.style.color = '#000';
+      } else {
+        video.muted = true;
+        soundIcon.classList.remove('fa-volume-high');
+        soundIcon.classList.add('fa-volume-xmark');
+        soundToggleBtn.style.background = 'rgba(0, 0, 0, 0.65)';
+        soundToggleBtn.style.color = '#ffffff';
+      }
+    });
+
+    /* ========================================================
+       3. 화면 스크롤 시 부드러운 등장 애니메이션 (Intersection Observer)
+       - 가볍고 최신 브라우저 표준인 Intersection Observer를 사용하여
+         스크롤로 화면에 요소가 15% 이상 보일 때 '.active' 클래스를 붙여줍니다.
+       ======================================================== */
+    const revealElements = document.querySelectorAll('.reveal');
+
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // 화면에 진입하면 active 클래스를 추가하여 부드럽게 페이드인
+          entry.target.classList.add('active');
+          // 한 번 나타난 요소는 계속 감시하지 않아 성능 최적화
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      root: null,       // 뷰포트 기준
+      threshold: 0.15,  // 요소의 15%가 화면에 보일 때 실행
+      rootMargin: '0px 0px -40px 0px'
+    });
+
+    revealElements.forEach(element => {
+      revealObserver.observe(element);
+    });
+
+    /* ========================================================
+       4. 스크롤 위치에 따른 상단 헤더 배경 흐림 및 그림자 강조
+       ======================================================== */
+    const header = document.querySelector('.header');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        header.style.background = 'rgba(10, 14, 23, 0.95)';
+        header.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.4)';
+      } else {
+        header.style.background = 'rgba(10, 14, 23, 0.85)';
+        header.style.boxShadow = 'none';
+      }
+    });
+  </script>
+</body>
+</html>
